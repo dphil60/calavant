@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier de l'Avent 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calendrier de l'Avent 2025 pour nos 3 merveilles</h1>
+        <p>Choisis une personne et un jour :</p>
+        <div class="buttons">
+            <button onclick="showDays('laure')">Laure</button>
+            <button onclick="showDays('raphaelle')">Raphaëlle</button>
+            <button onclick="showDays('clotilde')">Clotilde</button>
+        </div>
+        <div id="days" class="days"></div>
+    </div>
+
+    <script>
+        // Affiche les jours pour une personne donnée
+        function showDays(person) {
+            const daysContainer = document.getElementById('days');
+            daysContainer.innerHTML = '<h3>Choisis un jour :</h3><div class="days-grid"></div>';
+
+            const daysGrid = daysContainer.querySelector('.days-grid');
+            for (let i = 1; i <= 24; i++) {
+                const dayLink = document.createElement('a');
+                dayLink.href = `pages/${person}_${i}.html`;
+                dayLink.textContent = i;
+                dayLink.className = 'day';
+                daysGrid.appendChild(dayLink);
+            }
+        }
+    </script>
+</body>
+</html>
